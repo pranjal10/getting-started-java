@@ -10,7 +10,7 @@ dev:
     - script:
       name: gradle bootRun
       code: |
-        ./gradlew bootRun
+        ./gradlew -Dhttps.proxyHost=www-proxy.us.oracle.com -Dhttps.proxyPort=80 -Dhttp.proxyHost=www-proxy.us.oracle.com -Dhttp.proxyPort=80 bootRun
 
     ### REPLACE the above script step with this internal/watch step to enable 
     ### dynamic rebuilding/reloading of the container in response to file changes.
@@ -28,4 +28,4 @@ build:
     - script:
         name: gradle build
         code: |
-          ./gradlew --full-stacktrace -q --project-cache-dir=$WERCKER_CACHE_DIR build
+          ./gradlew -Dhttps.proxyHost=www-proxy.us.oracle.com -Dhttps.proxyPort=80 -Dhttp.proxyHost=www-proxy.us.oracle.com -Dhttp.proxyPort=80 --full-stacktrace -q --project-cache-dir=$WERCKER_CACHE_DIR build
